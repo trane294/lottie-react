@@ -86,6 +86,7 @@ export interface IPlayerProps {
   rendererSettings?: object;
   keepLastFrame?: boolean;
   className?: string;
+  parentClassName?: string;
 }
 
 interface IPlayerState {
@@ -221,11 +222,11 @@ export class Player extends React.Component<IPlayerProps, IPlayerState> {
   };
 
   public render() {
-    const { children, loop, style, onBackgroundChange, className } = this.props;
+    const { children, loop, style, onBackgroundChange, className, parentClassName } = this.props;
     const { animationData, instance, playerState, seeker, debug, background } = this.state;
 
     return (
-      <div className="lf-player-container">
+      <div className={`lf-player-container ${parentClassName}`}>
         {this.state.playerState === PlayerState.Error ? (
           <div className="lf-error">
             <span aria-label="error-symbol" role="img">

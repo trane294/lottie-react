@@ -22,7 +22,7 @@ context("Player component DOM check", () => {
   });
 
   it("Looks for lf-player-container class", () => {
-    cy.get("#container-one .lf-player-container")
+    cy.get("#container-one lf-player-container")
       .should("have.class", "lf-player-container");
   });
 
